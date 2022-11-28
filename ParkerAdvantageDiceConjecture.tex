@@ -69,11 +69,11 @@ To calculate the mean, we have a sum over $k$ weighted by the probabilities,
 where $H_n^{\left(m\right)}$ is the generalised Harmonic number of order $m$ of $n$.
 \newline
 
-Expanding $H_n^{\left(m\right)}$ in $\frac{1}{n}$ at $n \to \infty$ yields
+Expanding $n^{-m-1} H_n^{\left(m\right)}$ in $n^{-1}$ at $n \to \infty$ yields
 
 \begin{equation}
     H_n^{\left(m\right)}
-    = \zeta \left(m\right) + \frac{1}{n^m} \left[\frac{1}{2} - \frac{n}{m-1} + \mathcal{O} \left(\frac{1}{n}\right)\right],
+    \sim \zeta \left(m\right) + \frac{1}{n^m} \left[\frac{1}{2} - \frac{n}{m-1} + \mathcal{O} \left(\frac{1}{n}\right)\right],
 \end{equation}
 
 where $\zeta \left(m\right)$ is the Riemann zeta function evaluated at $m$, which can be used to approximate $H_n^{\left(m\right)}$ for large $n$.
@@ -90,7 +90,7 @@ Collecting all of the pieces that survive, we are left with
 
 \begin{equation}
     \overline{k}
-    \sim \frac{1}{n^m} \left[-n^{m-1} \binom{m}{m-2} \frac{n}{m} + n^m \binom{m}{m-1} \left(\frac{1}{2} + \frac{n}{m+1}\right)\right]
+    \sim \frac{1}{n^m} \left[-\binom{m}{m-2} n^{m-1} \, \frac{n}{m} + \binom{m}{m-1} n^m \left(\frac{1}{2} + \frac{n}{m+1}\right)\right]
 \end{equation}
 
 \begin{equation}
