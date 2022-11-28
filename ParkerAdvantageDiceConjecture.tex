@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bigstrut}
+\usepackage{braket}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{qcircuit}
+\usepackage{setspace}
+\usepackage{svg}
+\usepackage{titling}
+\usepackage{url}
+
+\predate{}
+\postdate{}
+
+\usepackage{hyperref}
+
+\renewcommand{\baselinestretch}{1.25}
+
+\setlength{\droptitle}{-8em}
+
+\title{The Parker Advantage Dice Conjecture}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\vspace{-0.8em}
+
+In order to calculate the mean of the highest roll of $m$ dice, each $n$-sided, we first write the down the probability of the highest roll being equal to $k$:
+
+\begin{equation}
+    P_k
+    = \frac{1}{n^m} \left[k^m - {\left(k - 1\right)}^m\right]
+\end{equation}
+
+\begin{equation}
+    P_k
+    = \frac{1}{n^m} \sum_{s=0}^{m-1} {\left(-1\right)}^{m+s+1} \binom{m}{s} k^s,
+\end{equation}
+
+where we've used the binomial theorem in $(2)$.
+\newline
+
+To calculate the mean, we have a sum over $k$ weighted by the probabilities,
+
+\begin{equation}
+    \overline{k}
+    = \sum_{k=1}^n P_k \, k
+\end{equation}
+
+\begin{equation}
+    \overline{k}
+    = \frac{1}{n^m} \sum_{k=1}^n \sum_{s=0}^{m-1} {\left(-1\right)}^{m+s+1} \binom{m}{s} k^{s+1}
+\end{equation}
+
+\begin{equation}
+    \overline{k}
+    = \frac{1}{n^m} \sum_{s=0}^{m-1} {\left(-1\right)}^{m+s+1} \binom{m}{s} H_n^{\left(-s-1\right)},
+\end{equation}
+
+where $H_n^{\left(m\right)}$ is the generalised Harmonic number of order $m$ of $n$.
+\newline
+
+Expanding $H_n^{\left(m\right)}$ in $\frac{1}{n}$ at $n \to \infty$ yields
+
+\begin{equation}
+    H_n^{\left(m\right)}
+    = \zeta \left(m\right) + \frac{1}{n^m} \left[\frac{1}{2} - \frac{n}{m-1} + \mathcal{O} \left(\frac{1}{n}\right)\right],
+\end{equation}
+
+where $\zeta \left(m\right)$ is the Riemann zeta function evaluated at $m$, which can be used to approximate $H_n^{\left(m\right)}$ for large $n$.
+\newline
+
+Plugging this result into $(5)$, all terms within the sum involving a power of $n$ smaller than $m$ will vanish for large $n$. First throwing away the pieces that won't contribute for any value of $s$ in the sum, we get
+
+\begin{equation}
+    \overline{k}
+    \sim \frac{1}{n^m} \sum_{s=0}^{m-1} {\left(-1\right)}^{m+s+1} \binom{m}{s} \left[n^{s+1} \left(\frac{1}{2} + \frac{n}{s+2}\right) \right].
+\end{equation}
+
+Collecting all of the pieces that survive, we are left with
+
+\begin{equation}
+    \overline{k}
+    \sim \frac{1}{n^m} \left[-n^{m-1} \binom{m}{m-2} \frac{n}{m} + n^m \binom{m}{m-1} \left(\frac{1}{2} + \frac{n}{m+1}\right)\right]
+\end{equation}
+
+\begin{equation}
+    \overline{k}
+    \sim -\frac{1}{2} \left(m-1\right) + m \left(\frac{1}{2} + \frac{n}{m+1}\right)
+\end{equation}
+
+\begin{equation}
+    \overline{k}
+    \sim \frac{1}{2} + \frac{mn}{m+1},
+\end{equation}
+
+thus proving the Parker advantage dice conjecture.
+
+\end{document}
