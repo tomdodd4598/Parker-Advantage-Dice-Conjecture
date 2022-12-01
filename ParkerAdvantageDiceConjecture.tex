@@ -69,38 +69,38 @@ To calculate the mean, we have a sum over $k$ weighted by the probabilities,
 where $H_n^{\left(m\right)}$ is the generalised Harmonic number of order $m$ of $n$.
 \newline
 
-Expanding $n^{-m-1} H_n^{\left(m\right)}$ in $n^{-1}$ at $n \to \infty$ yields
+Expanding $H_n^{\left(m\right)}$ in $n^{-1}$ at $n \to \infty$ yields
 
 \begin{equation}
     H_n^{\left(m\right)}
-    \sim \zeta \left(m\right) + \frac{1}{n^m} \left[\frac{1}{2} - \frac{n}{m-1} + \mathcal{O} \left(\frac{1}{n}\right)\right],
+    = \zeta \left(m\right) + \frac{1}{n^m} \left[\frac{n}{1-m} + \frac{1}{2} + \mathcal{O} \left(\frac{1}{n}\right)\right],
 \end{equation}
 
 where $\zeta \left(m\right)$ is the Riemann zeta function evaluated at $m$, which can be used to approximate $H_n^{\left(m\right)}$ for large $n$.
 \newline
 
-Plugging this result into $(5)$, all terms within the sum involving a power of $n$ smaller than $m$ will vanish for large $n$. First throwing away the pieces that won't contribute for any value of $s$ in the sum, we get
+Plugging this result into $(5)$, all terms within the sum involving a power of $n$ smaller than $m$ will vanish for large $n$. First discarding the pieces that won't contribute for any value of $s$ in the sum, we get
 
 \begin{equation}
     \overline{k}
-    \sim \frac{1}{n^m} \sum_{s=0}^{m-1} {\left(-1\right)}^{m+s+1} \binom{m}{s} \left[n^{s+1} \left(\frac{1}{2} + \frac{n}{s+2}\right) \right].
+    \sim \frac{1}{n^m} \sum_{s=0}^{m-1} {\left(-1\right)}^{m+s+1} \binom{m}{s} \left[n^{s+1} \left(\frac{n}{s+2} + \frac{1}{2}\right) \right].
 \end{equation}
 
 Collecting all of the pieces that survive, we are left with
 
 \begin{equation}
     \overline{k}
-    \sim \frac{1}{n^m} \left[-\binom{m}{m-2} n^{m-1} \, \frac{n}{m} + \binom{m}{m-1} n^m \left(\frac{1}{2} + \frac{n}{m+1}\right)\right]
+    \sim \frac{1}{n^m} \left[-\binom{m}{m-2} n^{m-1} \, \frac{n}{m} + \binom{m}{m-1} n^m \left(\frac{n}{m+1} + \frac{1}{2}\right)\right]
 \end{equation}
 
 \begin{equation}
     \overline{k}
-    \sim -\frac{1}{2} \left(m-1\right) + m \left(\frac{1}{2} + \frac{n}{m+1}\right)
+    \sim -\frac{1}{2} \left(m-1\right) + m \left(\frac{n}{m+1} + \frac{1}{2}\right)
 \end{equation}
 
 \begin{equation}
     \overline{k}
-    \sim \frac{1}{2} + \frac{mn}{m+1},
+    \sim \frac{mn}{m+1} + \frac{1}{2},
 \end{equation}
 
 thus proving the Parker advantage dice conjecture.
